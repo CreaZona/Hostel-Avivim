@@ -442,6 +442,8 @@ ${RULES_TEXT}`
 Отвечай только на русском языке. Давай короткие, чёткие и точные ответы на основе правил хостела.
 Если вопрос не связан с правилами хостела, скажи что можешь отвечать только на вопросы о правилах.
 Вместо слов "тапки" или "шлёпанцы" всегда используй слово "кафкафим".
+Вместо "майка-алкоголичка" используй "майка без рукавов" .
+Вместо "координатор" всегда используй "метаэм" (מתאם)
 Правила хостела:
 ${RULES_TEXT}`
   }
@@ -454,7 +456,8 @@ let isLoading = false;
 // INIT
 // ═══════════════════════════════════════════════
 function init() {
-  setLang('he');
+  const savedLang = localStorage.getItem('lang') || 'he';
+  setLang(savedLang);
 
   const q = document.getElementById('q');
   q.addEventListener('keydown', e => {
@@ -471,6 +474,7 @@ function init() {
 
 function setLang(lang) {
   currentLang = lang;
+  localStorage.setItem('lang', lang);
   const cfg = LANG[lang];
   document.documentElement.setAttribute('dir', cfg.dir);
   document.documentElement.setAttribute('lang', lang);
