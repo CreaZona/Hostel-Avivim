@@ -480,6 +480,8 @@ function setLang(lang) {
   document.getElementById('q').placeholder = cfg.placeholder;
   document.getElementById('btn-he').classList.toggle('active', lang === 'he');
   document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+  document.getElementById('chat').innerHTML = '';
+  addBotMessage(cfg.welcome);
   renderChips();
 }
 
