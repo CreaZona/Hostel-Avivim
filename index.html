@@ -455,8 +455,6 @@ let isLoading = false;
 // ═══════════════════════════════════════════════
 function init() {
   setLang('he');
-  renderChips();
-  addBotMessage(LANG[currentLang].welcome);
 
   const q = document.getElementById('q');
   q.addEventListener('keydown', e => {
